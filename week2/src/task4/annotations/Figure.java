@@ -19,7 +19,7 @@ public class Figure extends Annotation {
         stringBuilder.append("F");
         for(int i = 0; i < cords.length; i++){
             if (cords[i].length > 0) {
-                stringBuilder.append(" (" + cords[i][0] + ", " + cords[i][1] + "), ");
+                stringBuilder.append(" (" + cords[i][0] + "," + cords[i][1] + "),");
             }
             else {
                 continue;
@@ -27,7 +27,7 @@ public class Figure extends Annotation {
         }
         //честно говоря небольшой костыль, но прога не падает в ошибку если передать одну точку без координат
         if (stringBuilder.length() > 2) {
-            stringBuilder.replace(stringBuilder.length() - 2, stringBuilder.length() - 1, ": ");
+            stringBuilder.replace(stringBuilder.length() - 1, stringBuilder.length(), ": ");
         }
         else {
             stringBuilder.append(": ");
