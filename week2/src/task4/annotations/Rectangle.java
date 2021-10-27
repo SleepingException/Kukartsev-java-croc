@@ -1,11 +1,10 @@
 package task4.annotations;
 
 
-public class Rectangle extends Annotation {
+public class Rectangle extends Figure {
     private int x1, y1, x2, y2;
 
-    public Rectangle(String label, int x1, int y1, int x2, int y2){
-        super(label);
+    public Rectangle(int x1, int y1, int x2, int y2){
         this.x1 = x1;
         this.x2 = x2;
         this.y1 = y1;
@@ -19,7 +18,6 @@ public class Rectangle extends Annotation {
         stringBuilder.append(" (" + x1 + ", " + y1 + "), ");
         stringBuilder.append("(" + x2 + ", " + y2 + ")");
         stringBuilder.append(": ");
-        stringBuilder.append(label);
         return stringBuilder.toString();
     }
 }

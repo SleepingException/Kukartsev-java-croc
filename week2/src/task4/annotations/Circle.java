@@ -1,11 +1,10 @@
 package task4.annotations;
 
 
-public class Circle extends Annotation {
+public class Circle extends Figure {
     private int x, y, r;
 
-    public  Circle(String label, int x, int y, int r) {
-        super(label);
+    public Circle(int x, int y, int r) {
         this.x = x;
         this.y = y;
         if(r > 0) {
@@ -21,8 +20,7 @@ public class Circle extends Annotation {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("C");
         stringBuilder.append(" (" + x + ", " + y + "), " + r);
-        stringBuilder.append(" : ");
-        stringBuilder.append(label);
+        stringBuilder.append(": ");
         return stringBuilder.toString();
     }
 }

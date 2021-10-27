@@ -1,11 +1,10 @@
 package task5.annotations;
 
 
-public class Circle extends Annotation{
+public class Circle extends Figure {
     private int x, y, r;
 
-    public  Circle(String label, int x, int y, int r) {
-        super(label);
+    public Circle(int x, int y, int r) {
         this.x = x;
         this.y = y;
         if(r > 0) {
@@ -17,18 +16,22 @@ public class Circle extends Annotation{
     }
 
     @Override
-    public boolean isIncludePoint(int x, int y) {
-        return this.x == x && this.y == y;
-    }
-
-    @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("C");
         stringBuilder.append(" (" + x + ", " + y + "), " + r);
-        stringBuilder.append(" : ");
-        stringBuilder.append(label);
+        stringBuilder.append(": ");
         return stringBuilder.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj.toString().equals(this.toString());
+    }
+
+    @Override
+    public boolean equals(int x, int y) {
+        return this.x == x && this.y == y;
     }
 
     @Override

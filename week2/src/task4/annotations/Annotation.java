@@ -1,19 +1,30 @@
 package task4.annotations;
 
-//Пусть класс аннотации подразумевает просто подпись на каких-то координатах
 public class Annotation {
-    protected String label;
-    private int x,y;
-    public Annotation(String label){
+    private String label;
+    private Figure figure;
+    public Annotation(String label, Figure figure) {
         this.label = label;
-    }
-    public Annotation(String label, int x, int y){
-        this.x = x;
-        this.y = y;
-        this.label = label;
+        this.figure = figure;
     }
     @Override
     public String toString() {
-        return "A " + "(" + x +", " + y + "):" + label;
+        return figure.toString() + label;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Figure getFigure() {
+        return figure;
+    }
+
+    public void setFigure(Figure figure) {
+        this.figure = figure;
     }
 }

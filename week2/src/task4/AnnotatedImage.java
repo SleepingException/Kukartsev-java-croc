@@ -4,9 +4,10 @@ import task4.annotations.Annotation;
 
 public class AnnotatedImage {
 
-    private final String imagePath;
+    protected String imagePath;
 
-    private final Annotation[] annotations;
+    protected Annotation[] annotations;
+
 
     public AnnotatedImage(String imagePath, Annotation... annotations) {
         this.imagePath = imagePath;

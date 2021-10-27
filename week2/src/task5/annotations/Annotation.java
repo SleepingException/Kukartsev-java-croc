@@ -1,37 +1,30 @@
 package task5.annotations;
 
-import task5.api.Movable;
-
-//Пусть класс аннотации подразумевает просто подпись на каких-то координатах
-public class Annotation implements Movable {
-    protected String label;
-    private int x,y;
-
-    public Annotation(String label){
+public class Annotation {
+    private String label;
+    private Figure figure;
+    public Annotation(String label, Figure figure) {
         this.label = label;
+        this.figure = figure;
     }
-    public Annotation(String label, int x, int y){
-        this.x = x;
-        this.y = y;
-        this.label = label;
-    }
-
-    public boolean isIncludePoint(int x, int y){
-        return this.x == x && this.y == y;
+    @Override
+    public String toString() {
+        return figure.toString() + label;
     }
 
     public String getLabel() {
         return label;
     }
 
-    @Override
-    public String toString() {
-        return "A " + "(" + x +", " + y + "):" + label;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
-    @Override
-    public void move(int dx, int dy) {
-        x += dx;
-        y += dy;
+    public Figure getFigure() {
+        return figure;
+    }
+
+    public void setFigure(Figure figure) {
+        this.figure = figure;
     }
 }

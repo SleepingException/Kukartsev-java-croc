@@ -4,38 +4,32 @@ import task5.annotations.Annotation;
 
 public class AnnotatedImage {
 
-    private final String imagePath;
-
-    private final Annotation[] annotations;
+    private String imagePath;
+    private Annotation[] annotations;
 
     public AnnotatedImage(String imagePath, Annotation... annotations) {
         this.imagePath = imagePath;
         this.annotations = annotations;
     }
-
-    public String getImagePath() {
-        return this.imagePath;
-    }
-
     public Annotation[] getAnnotations() {
         return this.annotations;
     }
 
-    public Annotation findByPoint(int x, int y) {
+    public Annotation findByPoint(int x, int y) throws RuntimeException{
         for (Annotation elem : annotations) {
-            if (elem.isIncludePoint(x, y)){
+            if (elem.getFigure().equals(x, y)){
                 return elem;
             }
         }
-        return null; //существует ли вариант выдавать что то кроме null?
+        throw new RuntimeException("Element wasn't found");
     }
-    public Annotation findByLabel(String label) {
+    public Annotation findByLabel(String label) throws RuntimeException{
         for (Annotation elem : annotations) {
             if(elem.getLabel().contains(label)){
                 return elem;
             }
         }
-        return null;
+        throw new RuntimeException("Element wasn't found");
     }
 }
 
