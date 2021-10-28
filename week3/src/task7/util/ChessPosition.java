@@ -1,4 +1,4 @@
-package task7.util;
+ package task7.util;
 
 import task7.exceptions.IllegalMoveException;
 import task7.exceptions.IllegalPositionException;
@@ -22,16 +22,12 @@ public class ChessPosition {
         }
     }
     public boolean canMove(ChessPosition pos) throws IllegalMoveException {
-        if(this.firstCoordinate + 2 == pos.firstCoordinate && this.secondCoordinate + 1 == pos.secondCoordinate ||
-                this.firstCoordinate - 2 == pos.firstCoordinate && this.secondCoordinate -1 == pos.secondCoordinate ||
-                this.firstCoordinate + 2 == pos.firstCoordinate && this.secondCoordinate -1 == pos.secondCoordinate ||
-                this.firstCoordinate - 2 == pos.firstCoordinate && this.secondCoordinate + 1 == pos.secondCoordinate ||
-                this.secondCoordinate + 2 == pos.secondCoordinate && this.firstCoordinate + 1 == pos.firstCoordinate ||
-                this.secondCoordinate - 2 == pos.secondCoordinate && this.firstCoordinate -1 == pos.firstCoordinate ||
-                this.secondCoordinate + 2 == pos.secondCoordinate && this.firstCoordinate -1 == pos.firstCoordinate ||
-                this.secondCoordinate - 2 == pos.secondCoordinate && this.firstCoordinate + 1 == pos.firstCoordinate)
+        if((Math.abs(firstCoordinate - pos.firstCoordinate) == 1 && Math.abs(secondCoordinate - pos.secondCoordinate) == 2)
+        || (Math.abs(firstCoordinate - pos.firstCoordinate) == 2 && Math.abs(secondCoordinate - pos.secondCoordinate) == 1))
             return true;
-        else throw new IllegalMoveException("Конь не может так ходить: ", this, pos);
+        else {
+            throw new IllegalMoveException("Конь не может так ходить: ", this, pos);
+        }
 
     }
 
